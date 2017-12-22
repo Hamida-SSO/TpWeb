@@ -1,0 +1,71 @@
+@charset "ISO-8859-1";
+
+header, footer {
+	background-color: #ffe6e6;
+	border: 2px solid red;
+	border-radius: 8px;
+	text-align: center;
+}
+
+header {
+	margin: 0px;
+	position: relative;
+	animation-name: clignote;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes clignote {
+	0% { background-color: #ffe6e6; left: 0px; top: 0px; }
+	25% { background-color: #00FFFF; left: 10px; top: 0px; }
+    50% { background-color: #00FA9A; left: 10px; top: 10px; }
+    75% { background-color: #FF69B4; left: 0px; top: 10px; }
+    100% { background-color: #ffe6e6; left:0px; top:0px; }
+}
+
+legend {
+	font-size: 30px;
+    font-weight: bold;
+    text-align: center
+}
+
+fieldset {
+   	border: 2px solid gray;
+    border-radius: 8px;
+    overflow-x: auto;
+	width: 95%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+main article h1 span#grand {
+	display: none;
+}
+
+main article h1 span#petit {
+	display: block;
+}
+
+@media screen and (min-width: 640px) {
+	main article h1 span#grand {
+		display: block;
+	}
+	main article h1 span#petit {
+		display: none;
+	}
+}
+
+@media print {
+	header, footer {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	aside {
+		display: none;
+	}
+}

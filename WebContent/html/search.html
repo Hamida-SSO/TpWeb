@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Search</title>
+<link rel="stylesheet" type="text/css" href="../css/search.css">
+<link rel="stylesheet" type="text/css" href="../css/headerFooter.css">
+</head>
+<body>
+
+	<header>
+		<h1>Recherche</h1>
+		
+	</header>
+	
+	<main>
+	<article>
+		<h1>
+			<span id="grand">Liens</span> 
+			<span id="petit">L</span>
+		</h1>
+		<ol>
+			<li><a href="/html/demo.html">vers une autre galaxie</a></li>
+			<li><a href="/html/login.html">Se connecter</a></li>
+			<li><a href="/html/adherent.html">Page d'inscription</a></li>
+			<li><a href="/html/article.html">Première page</a></li>
+		</ol>
+	</article>
+	<article>
+		<h1>
+			<span id="grand">Formulaire</span> 
+			<span id="petit">F</span>
+		</h1>
+		<form action="connexion" method="post">
+			<fieldset>
+				Titre:<br> <input type="text" name="titre" autofocus><br> <br>
+				Categorie: <select>
+					<option value="journal">Journal</option>
+					<option value="web">Web</option>
+					<option value="tv">TV</option>
+				</select> 
+			</fieldset>
+		</form>
+	</article>
+	<article>
+		<h1>
+			<span id="grand">Tableau</span> <span id="petit">T</span>
+		</h1>
+		<table id="tableau">
+			<tr id="title">
+				<th>Titre</th>
+				<th>Catégorie</th>
+				<th>Auteur</th>
+			</tr>
+			<tr>
+				<td>Roswell</td>
+				<td class="tv">TV</td>
+				<td>Aucune idée</td>
+			</tr>
+			<tr>
+				<td>Black Mirror</td>
+				<td class="web">Web</td>
+				<td>Nan</td>
+			</tr>
+			<tr>
+				<td>Humans</td>
+				<td class="journal">Journal</td>
+				<td>Ouais</td>
+			</tr>
+			<tr>
+				<td>SmallVille</td>
+				<td class="tv">TV</td>
+				<td>De même je sais pas</td>
+			</tr>
+
+		</table>
+	</article>
+	</main>
+
+	<br>
+	<br>
+	<br>
+
+	<footer>
+		<svg width="600" height="200">
+			<circle cx="500" cy="100" r="30" fill="blue">
+				<animate dur="5s" attributeName="cx" values="100; 500; 100"
+				repeatCount="indefinite" />
+			</circle>
+			<circle cx="100" cy="100" r="40" fill="purple">
+				<animate dur="5s" attributeName="r" values="50; 20; 50"
+				repeatCount="indefinite" />
+			</circle>
+		</svg>
+
+	</footer>
+</body>
+</html>

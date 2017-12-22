@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+div {
+	color: red;
+}
+
+.list {
+	background-color: yellow;
+}
+
+#id2 {
+	font-style: italic;
+}
+
+.mult2 {
+	color: blue;
+}
+
+.mult3 {
+	color: purple;
+}
+
+.mult2 .mult3 {
+	color: red;
+}
+
+div ul li#id1 {
+	font-weight: bold;
+}
+
+li:before {
+	content: 'Le petit';
+}
+
+.my-item {
+	display: none;
+}
+
+.my-item.first {
+	display: block;
+}
+
+@media screen and (min-width: 640px) {
+	.my-item {
+		display: block;
+	}
+}

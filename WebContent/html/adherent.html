@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/search.css">
+<link rel="stylesheet" type="text/css" href="../css/headerFooter.css">
+</head>
+<body >
+	<header>
+		<h1>Recherche</h1>
+	</header>
+	<br><br>
+	<main >
+		<form action="registre" method="post" >
+			<fieldset>
+				<legend>Registration form</legend>
+				Firstname: <input type="text" name="firstname" autofocus><br> <br>
+				Lastname: <input type="text" name="lastname" ><br> <br>
+				Birth date: <input type="date" name="birthdate"><br> <br>
+				Age : <input type="text" name="age"><br> <br> Email:
+				<input type="email" name="email"><br> <br> Adress:
+				<input type="text" name="adress"><br> <br> Sex: <br>
+				<br> <input type="radio" name="sex"> Homme <br> <br>
+				<input type="radio" name="sex"> Femme <br> <br>
+				Postal code: <input type="number" name="postalcode"><br>
+				<br> City : <input type="text" name="city"><br> <br>
+				<input type="checkbox" name="cotisation">A contribution day <br>
+	
+				<br> <input type="submit" value="Submit">
+			</fieldset>
+		</form>
+	</main>
+	<br><br>
+	<footer>
+		<svg width="600" height="200">
+			<circle cx="500" cy="100" r="30" fill="blue">
+				<animate dur="5s" attributeName="cx" values="100; 500; 100"
+				repeatCount="indefinite" />
+			</circle>
+			<circle cx="100" cy="100" r="40" fill="purple">
+				<animate dur="5s" attributeName="r" values="50; 20; 50"
+				repeatCount="indefinite" />
+			</circle>
+		</svg>
+	</footer>
+</body>
+</html>
