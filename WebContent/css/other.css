@@ -1,0 +1,5 @@
+@charset "ISO-8859-1";
+
+.table-striped:nth-child(2n) {
+	background-color: #ffe6e6;
+}
