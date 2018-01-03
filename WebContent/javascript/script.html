@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Démo</title>
+<script type="text/javascript">
+	"use strict";
+
+	/* var x = 5;
+	 var y = 10;
+	 console.log('Somme :', x + y);
+	 var z,t;
+	 z = y - x;
+	 console.log('Z :', z);
+	 t = x < y;
+	 console.log('T :', t);
+	 var str1 = 'une chaine';
+	 var str2 = 'une autre chaine';
+	 console.log(str1 + str2);
+	 console.log(str1 + x);
+	 console.log(x + ' ' +str1);
+	 console.log(x + y + str1);
+
+	 var obj = {};
+	 obj.a = 1;
+	 obj.b = 2;
+	 obj.sub = {k:'k',bool:true,wesh:90};
+	 obj.a = 3;
+	 obj.sub.toto = 'une String';
+	 obj.sub.liste = [];
+	 obj.sub.liste.push('1');
+	 obj.sub.liste.push('2');
+	 obj.sub.liste.push({t:45, v:883});
+	 obj.sub.liste[9] = 'index 9'; 
+
+	 var personne = {};
+	 personne.age = 28;
+	 personne.nom = 'Toto';
+	 console.log(personne);
+
+	 for(var key in personne) {
+		 console.log(key, personne[key]);
+	 }
+	 for(var clef in obj) {
+	 	console.log(clef, obj[clef]);
+	 }
+
+	var nombres = [];
+	nombres[4] = 4;
+	nombres[6] = 7;
+	nombres[2] = 8;
+	console.log(nombres.length);
+	
+	var j = 1;
+	while (j < 1000) {
+		console.log(j);
+		j = (j * j) + 1;
+	}
+
+	var liste = [10,5,6,9,78,52];
+	var x = 3;
+	if (liste[x] !== undefined) {
+		console.log(liste[x]);
+	}
+
+	function somme(a, b){
+		return a + b;
+	}
+	console.log(somme(1,2));
+	console.log(somme(128,45));
+	function concat(a, b){
+		return '' + a + b;
+	}
+	console.log(concat(1,2));
+	console.log(concat(145,'tyu'));  
+	
+	var fct;
+	var somme;
+	for(var index=0;index<10;index++){
+		if(Math.random()<0.5){
+			fct = function(a,b){
+				return a * b;
+			};
+		} 
+		else {
+			fct = somme;
+		}
+		console.log(fct(3,4));
+	}
+	
+	var list = [];
+	while(Math.random()<0.8){
+		var element = {
+			id : list.length +1,
+			name : 'Objet n°' + (list.length +1)
+		};
+		list.push(element);
+	}
+	console.log(list);
+	
+	var list1 = list.filter(
+		function(item){
+			return item.id==9;
+		}
+	);
+	console.log(list1);
+	
+	var list2 = list.map(
+		function(item){
+			return item.name.replace('°', ':');
+		}
+	);
+	console.log(list2);*/
+
+	console.log('Un chiffre:', 8);
+	console.log(list);
+	console.log(personne);
+	function unTest(a){
+		return a*a;
+	}
+	function unAutre(a){
+		return 2*a;
+	}
+	console.log(unTest(3));
+	console.log(unTest);
+	function metaFonction(fct, b){
+		return fct(b) + 1;
+	}
+	console.log(metaFonction(unTest,3));
+	console.log(metaFonction(unAutre,3));
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Petits test</title>
+<script type="text/javascript"> "use strict";
+
+//Primitifs
+var boolean = false;
+var String = 'String';
+var number = 21;
+var undefined;
+var nul = null;
+
+/* console.log(boolean);
+console.log(String);
+console.log(number);
+console.log(undefined);
+console.log(nul); */
+
+//Objets et Tableaux
+
+//Objets etudiant et une liste session
+
+
+/*   
+ 	function etudiant(nom, prenom, age) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.age = age;
+	}
+
+var etudiant1 = new etudiant('BONNET','Arnaud',23);
+var etudiant2 = new etudiant('TAN', 'Julie',0);
+var etudiant3 = new etudiant('','Caleb',0);
+ 
+var session = [];
+session.push(etudiant1);
+session.push(etudiant2);
+session.push(etudiant3);
+
+console.log(session[1].nom);
+function creerEtudiant(nom, prenom, age) {
+	var etudiant = {
+		nom : nom,
+		prenom : prenom,
+		age : age
+	}	
+	
+	session.push(etudiant);
+	return etudiant;
+} */
+
+var etudiant1 = {nom:'BONNET', prenom:'Arnaud',age:23};
+var etudiant2 = {nom:'TAN', prenom:'Julie',age:25};
+var etudiant3 = {nom:'JOSEPH',prenom:'Caleb',age:27};
+
+var list = [];
+list.push(etudiant1);
+list.push(etudiant2);
+list.push(etudiant3);
+list.push(boolean);
+list.push(String);
+list.push(number);
+list.push(25);
+list.push(undefined);
+
+// Tous les nombres multiples de 5 ou 7
+var i;
+var nombre=[];
+for(i=0; i <= 100; i++) {
+	nombre.push(i);
+}
+
+list.push(nombre);
+list.push({t:45, v:883, w:500, x:200, z:115});
+
+function multiple(x,n) {
+	return x%n==0;
+}
+
+function test(liste) {
+ 	for(var key in liste) {
+		if(typeof liste[key] === 'number') {
+			if(multiple(liste[key],5) || multiple(liste[key],7)) {
+				console.log(liste[key]);
+			}
+		}
+		else {
+			for(var key2 in liste[key]) {
+			if(typeof liste[key][key2] === 'number') {
+				if(multiple(liste[key][key2],5) || multiple(liste[key][key2],7)) {
+					console.log(liste[key][key2]);
+				}
+			}
+ 		}
+	} 
+}
+test(list); 
+
+
+// trie la liste passé en paramètre
+
+function trie(a,b,c,d) {
+	var list = [];
+	list.push(a);
+	list.push(b);
+	list.push(c);
+	list.push(d);
+	return list
+			.filter(function(x) {
+				return x!==undefined;
+			})
+			.sort(function(x,y) {
+				return x>y;
+			});
+}
+
+function trieInfini(argument) {
+	var list = [];
+	for(var i=0; i<argument.length; i++) {
+		list.push(argument[i]);
+	}
+	return list
+		.sort(function(x,y) {
+			return x>y;
+		});
+}
+
+console.log(trieInfini([1,2,-1,-6,59,36,4,4,4]));
+//console.log(trie(1,-1,-6,4));
+
+
+var cpt;
+(function(root) { 
+	var mem={};
+	
+	root.fib = function(n) {
+		cpt++;
+		if(mem[n] === undefined ) {
+			if(n===0 || n===1) {
+				mem [n] =1;
+			}
+			else {
+				mem[n] = fib(n-1) + fib(n-2);
+			}
+		}
+		return mem[n]; 
+	}
+	/* if(n===0 || n===1) {
+		return 1;
+	}
+	else {
+		return fib(n-1) + fib(n-2);
+	} */
+}) (this);
+	
+cpt =0;
+console.log(fib(21), cpt); 
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
