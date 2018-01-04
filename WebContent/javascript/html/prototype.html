@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prototype</title>
+<script type="text/javascript">
+	"use strict";
+
+function Personne(){
+	this.nom;
+	this.date;
+	this.age;
+}
+Personne.prototype.getNom = function(){
+	return this.nom;
+}
+Personne.prototype.setNom = function(nom){
+	this.nom = nom;
+}
+Personne.prototype.setDateNaissance = function(date) {
+	this.date =  new Date(date.getFullYear(), date.getUTCMonth(),date.getUTCDate()+1);
+}
+Personne.prototype.getDateNaissance = function() {
+	return this.date;
+}
+Personne.prototype.getAge = function() {
+	/* var maintenant = new Date();
+	var mois = maintenant.getUTCMonth();
+	var jour = maintenant.getUTCDate()+1;
+	var annee = maintenant.getFullYear();
+	
+	var maDate = this.getDateNaissance();
+	var dateCalcule = maDate.getUTCDate()+1 - maintenant.getUTCDate()+1;
+	
+	return this.age = dateCalcule; */
+	return Math.floor((new Date() - this.date) /1000 / 60 / 60 / 24); 
+}
+Personne.prototype.afficheAge = function() {
+	
+	//console.log(this.age);
+	
+	var jour = this.getAge();
+	var a = Math.floor(jour / 365.25);
+	var m = Math.floor(jour - (a*365.25)/30);
+	var j = Math.floor(jour - (a*365.25)/30 - (m*31)/1);
+	
+	console.log(a+' annees ' + m + ' mois '+ j  +' jours');
+}
+
+
+
+var p1 = new Personne();
+p1.setNom('Nada');
+
+var date = new Date(1990,10,24);
+p1.setDateNaissance(date);
+
+p1.afficheAge();
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

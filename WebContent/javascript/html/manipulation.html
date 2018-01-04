@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Manipulation</title>
+
+
+
+</head>
+<body>
+<canvas id="mon_canvas" width="800px" height="500px">
+Votre navigateur ne supporte pas le HTML5
+</canvas>
+<ol id="mylist">
+</ol>
+
+<script type="text/javascript">
+	"use strict";
+
+var list = [];
+var nextID = 0;
+function Element() {
+	this.id = nextID++;
+	this.titre;
+	this.emprunte;
+}
+Element.prototype.setId = function(id) {
+	this.id = id;
+}
+Element.prototype.getId = function() {
+	return this.id;
+}
+Element.prototype.setTitre = function(titre) {
+	this.titre = titre;
+}
+Element.prototype.getTitre = function() {
+	return this.titred;
+}
+Element.prototype.setEmprunt = function(emprunte) {
+	this.emprunte = emprunte;
+}
+Element.prototype.getEmprunt = function() {
+	return this.emprunte;
+}
+
+function ajoutElem(titre, emprunt) {
+	var el = new Element();
+	el.setTitre(titre);
+	el.setEmprunt(emprunt);
+	list.push(el);
+}
+
+function nbrElem() {
+	return list.length;
+}
+
+/* function nbrLivreDispo() {
+	return list
+		.filtre(l => !l.getEmprunt())
+		.length;
+} */
+
+function nbrLivreDispoATrue() {
+	var elem = [];
+	for(var key in list) {
+		if ((list[key].getEmprunt() === true)) {
+			elem.push(list[key]);	
+		}
+	}		
+	return elem.length;
+}
+
+function coeffLivreDispo() {
+	return nbrLivreDispoATrue() / nbrElem();
+}
+
+ajoutElem('Chat');
+ajoutElem('Chien',true);
+ajoutElem('Agneau', true);
+ajoutElem('Caméleon',false);
+ajoutElem('Chameau',true);
+ajoutElem('Lézard',true);
+ajoutElem('Tigre',);
+ajoutElem('Lion',false);
+ajoutElem('Léopard',false);
+
+console.log(list);
+
+console.log(nbrElem());
+console.log(nbrLivreDispoATrue());
+console.log(coeffLivreDispo());
+
+// Partie dessin du camembert
+function dessinePart(ctx,start,stop,color) {
+	
+	ctx.beginPath();
+	ctx.arc(100,100,80,start,stop,color);
+	ctx.lineTo(100,100);
+	ctx.fillStyle = color;
+	ctx.fill();
+}
+
+function dessine()
+{
+	if(document.getElementById("mon_canvas")) {
+		var ctx = document.getElementById("mon_canvas").getContext("2d");
+		dessinePart(ctx,0, 2 * Math.PI*coeffLivreDispo(), 'blue');
+		dessinePart(ctx,2 * Math.PI*coeffLivreDispo(), 2 * Math.PI,'orange');
+	}
+}
+
+dessine();
+
+function afficheList() {
+	$('#mylist li').remove();
+	
+	var listLivre = $('#mylist li');
+	for(var key in list) {
+		var li = $('<li></li>')
+						.text(list[key].getTitre())
+						
+	}		
+	
+}
+
+afficheList();
+</script>
+<script src="../js/jquery-3.2.1.js"></script>
+</body>
+</html>

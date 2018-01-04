@@ -12,27 +12,24 @@ var number = 21;
 var undefined;
 var nul = null;
 
-/* console.log(boolean);
+console.log(boolean);
 console.log(String);
 console.log(number);
 console.log(undefined);
-console.log(nul); */
+console.log(nul); 
 
 //Objets et Tableaux
 
 //Objets etudiant et une liste session
+function Etudiant(nom, prenom, age) {
+	this.nom = nom;
+	this.prenom = prenom;
+	this.age = age;
+}
 
-
-/*   
- 	function etudiant(nom, prenom, age) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.age = age;
-	}
-
-var etudiant1 = new etudiant('BONNET','Arnaud',23);
-var etudiant2 = new etudiant('TAN', 'Julie',0);
-var etudiant3 = new etudiant('','Caleb',0);
+var etudiant1 = new Etudiant('BONNET','Arnaud',23);
+var etudiant2 = new Etudiant('TAN', 'Julie',0);
+var etudiant3 = new Etudiant('','Caleb',0);
  
 var session = [];
 session.push(etudiant1);
@@ -49,7 +46,7 @@ function creerEtudiant(nom, prenom, age) {
 	
 	session.push(etudiant);
 	return etudiant;
-} */
+}
 
 var etudiant1 = {nom:'BONNET', prenom:'Arnaud',age:23};
 var etudiant2 = {nom:'TAN', prenom:'Julie',age:25};
@@ -79,28 +76,26 @@ function multiple(x,n) {
 	return x%n==0;
 }
 
-function test(liste) {
- 	for(var key in liste) {
-		if(typeof liste[key] === 'number') {
-			if(multiple(liste[key],5) || multiple(liste[key],7)) {
-				console.log(liste[key]);
+function test() {
+ 	for(var key in list) {
+		if(typeof list[key] === 'number') {
+			if(multiple(list[key],5) || multiple(list[key],7)) {
+				console.log(list[key]);
 			}
 		}
 		else {
-			for(var key2 in liste[key]) {
-			if(typeof liste[key][key2] === 'number') {
-				if(multiple(liste[key][key2],5) || multiple(liste[key][key2],7)) {
-					console.log(liste[key][key2]);
+			for(var key2 in list[key]) {
+			if(typeof list[key][key2] === 'number') {
+				if(multiple(list[key][key2],5) || multiple(list[key][key2],7)) {
+					console.log(list[key][key2]);
 				}
 			}
  		}
 	} 
 }
-test(list); 
-
+test(); 
 
 // trie la liste passé en paramètre
-
 function trie(a,b,c,d) {
 	var list = [];
 	list.push(a);
@@ -114,21 +109,21 @@ function trie(a,b,c,d) {
 			.sort(function(x,y) {
 				return x>y;
 			});
-}
+} 
 
-function trieInfini(argument) {
+function trieInfini() {
 	var list = [];
-	for(var i=0; i<argument.length; i++) {
-		list.push(argument[i]);
+	for(var i=0; i<arguments.length; i++) {
+		list.push(arguments[i]);
 	}
 	return list
 		.sort(function(x,y) {
 			return x>y;
 		});
-}
+} 
 
 console.log(trieInfini([1,2,-1,-6,59,36,4,4,4]));
-//console.log(trie(1,-1,-6,4));
+console.log(trie(1,-1,-6,4));
 
 
 var cpt;
@@ -152,13 +147,32 @@ var cpt;
 	}
 	else {
 		return fib(n-1) + fib(n-2);
-	} */
-}) (this);
+	}  */
+}) (this); 
+
+cpt=0;
+
+function bizarre(){
+	var resultat = 0;
+	function into(max){
+		for(i=0;i<max;i++){
+			resultat++;
+		}
+	}
+	for(i=0;i<10;i++){
+		into(10);
+	}
+	return resultat;
+}
+console.log(bizarre());
+
+function exp(n) {
+	return Math.pow(2,n);
+}
+
+function affiches(liste,fct) {
 	
-cpt =0;
-console.log(fib(21), cpt); 
-
-
+}
 </script>
 </head>
 <body>
