@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.emprunt {
+	color: red;
+}
+
+.nonEmprunt {
+	color: blue;
+}
+
+fieldset {
+  font-size:18px;
+  padding:10px;
+  width:50%;
+  line-height:1.8;
+}

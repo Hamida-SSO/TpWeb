@@ -3,18 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Manipulation</title>
-
-
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 </head>
 <body>
-<canvas id="mon_canvas" width="800px" height="500px">
+<canvas id="mon_canvas" width="800px" height="200px">
 Votre navigateur ne supporte pas le HTML5
 </canvas>
 <ol id="mylist">
 </ol>
+<p id="nbr"></p>
 
-<script type="text/javascript">
+<form id="my-form" >
+	<fieldset>
+		<h3>Ajouter</h3>
+		Titre : <input type="text" id="titre" autofocus>
+		<input type="checkbox" id="check"> Emprunté <br>
+		<input type="submit" value="Submit" id="ok"><br><br>
+		
+		Recherche : <input type="text" id="rech" > <br>
+		<input type="submit" value="Submit" id="okRech"> 
+	</fieldset>
+</form>
+<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+<script type="text/javascript" >
 	"use strict";
 
 var list = [];
@@ -34,7 +46,7 @@ Element.prototype.setTitre = function(titre) {
 	this.titre = titre;
 }
 Element.prototype.getTitre = function() {
-	return this.titred;
+	return this.titre;
 }
 Element.prototype.setEmprunt = function(emprunte) {
 	this.emprunte = emprunte;
@@ -48,6 +60,9 @@ function ajoutElem(titre, emprunt) {
 	el.setTitre(titre);
 	el.setEmprunt(emprunt);
 	list.push(el);
+	dessine();
+	afficheList();
+	afficheLesNbrDeLivre();
 }
 
 function nbrElem() {
@@ -63,7 +78,7 @@ function nbrElem() {
 function nbrLivreDispoATrue() {
 	var elem = [];
 	for(var key in list) {
-		if ((list[key].getEmprunt() === true)) {
+		if ((list[key].getEmprunt())) {
 			elem.push(list[key]);	
 		}
 	}		
@@ -72,6 +87,14 @@ function nbrLivreDispoATrue() {
 
 function coeffLivreDispo() {
 	return nbrLivreDispoATrue() / nbrElem();
+}
+
+function supprimeElem(a) {
+	for(var key in list) {
+		if ((list[key].getTitre() === a)) {
+			list.delete(list[key]);	
+		}
+	}	
 }
 
 ajoutElem('Chat');
@@ -85,14 +108,12 @@ ajoutElem('Lion',false);
 ajoutElem('Léopard',false);
 
 console.log(list);
-
 console.log(nbrElem());
 console.log(nbrLivreDispoATrue());
 console.log(coeffLivreDispo());
 
 // Partie dessin du camembert
 function dessinePart(ctx,start,stop,color) {
-	
 	ctx.beginPath();
 	ctx.arc(100,100,80,start,stop,color);
 	ctx.lineTo(100,100);
@@ -105,26 +126,42 @@ function dessine()
 	if(document.getElementById("mon_canvas")) {
 		var ctx = document.getElementById("mon_canvas").getContext("2d");
 		dessinePart(ctx,0, 2 * Math.PI*coeffLivreDispo(), 'blue');
-		dessinePart(ctx,2 * Math.PI*coeffLivreDispo(), 2 * Math.PI,'orange');
+		dessinePart(ctx,2 * Math.PI*coeffLivreDispo(), 2 * Math.PI,'red');
 	}
 }
 
-dessine();
-
+//Une amélioration tester si l'element est déjà afficher
 function afficheList() {
 	$('#mylist li').remove();
 	
-	var listLivre = $('#mylist li');
+	var listLivre = $('#mylist');
 	for(var key in list) {
-		var li = $('<li></li>')
-						.text(list[key].getTitre())
-						
-	}		
-	
+		var li = $('<li></li>').append(list[key].getTitre());
+		if(list[key].getEmprunt()) {
+			li.addClass('emprunt');
+		}
+		else {
+			li.addClass('nonEmprunt');
+		}
+		listLivre.append(li);
+	}
 }
 
-afficheList();
+function afficheLesNbrDeLivre() {
+	$('#nbr').empty();	
+	$('#nbr').append(nbrLivreDispoATrue()+'/'+ nbrElem());
+}
+
+var valid;
+
+$('#my-form').submit(function(event){
+	event.originalEvent.returnValue = false;
+	
+	var titre = $('#titre').val();
+	var check = $('#check').is(':checked');
+	ajoutElem(titre,check);	
+});
+
 </script>
-<script src="../js/jquery-3.2.1.js"></script>
 </body>
 </html>
